@@ -3,11 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/everythingFragment">
+    app:startDestination="@id/navFragment">
 
     <fragment
         android:id="@+id/everythingFragment"
         android:name="com.example.newsapp.ui.aps.home.topHeadlines.TopHeadlinesFragment"
         android:label="fragment_everything"
         tools:layout="@layout/fragment_top_headlines" />
+    <fragment
+        android:id="@+id/navFragment"
+        android:name="com.example.newsapp.ui.aps.navFragment"
+        android:label="fragment_nav"
+        tools:layout="@layout/fragment_nav" />
 </navigation>
