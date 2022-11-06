@@ -1,4 +1,4 @@
-package com.example.newsapp.ui.aps.home.topHeadlines
+package com.example.newsapp.ui.aps.home.sports
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -6,14 +6,13 @@ import androidx.lifecycle.viewModelScope
 import com.example.newsapp.data.model.NewsModel
 import com.example.newsapp.data.retrofit.repository.NewsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
-class TopHeadlinesViewModel @Inject constructor(
-    private val repository: NewsRepository,
+class SportsViewModel @Inject constructor(
+    private val repository: NewsRepository
 ): ViewModel() {
 
     private var _news: MutableLiveData<Response<NewsModel>> = MutableLiveData()
@@ -21,7 +20,8 @@ class TopHeadlinesViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-             _news.value = repository.getTopHeadlines("Ukrain")
+            _news.value = repository.getTopHeadlines("us", "sports")
         }
     }
+
 }

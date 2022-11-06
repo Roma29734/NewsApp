@@ -11,12 +11,10 @@ import java.util.zip.Inflater
 
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
-abstract class BaseFragment<B : ViewBinding, VM : ViewModel>(private val inflate: Inflate<B>) :
+abstract class BaseFragment<B : ViewBinding>(private val inflate: Inflate<B>) :
     Fragment(){
     private var _viewBinding: B? = null
     protected val binding get() = checkNotNull(_viewBinding)
-    protected abstract val viewModel: VM
-
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -5,18 +5,44 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
+import androidx.fragment.app.viewModels
 import com.example.newsapp.R
+import com.example.newsapp.base.BaseFragment
+import com.example.newsapp.databinding.FragmentSearchBinding
+import com.example.newsapp.ui.adapter.NewsAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
+class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate) {
+    private val viewModel: SearchViewModel by viewModels()
+    private val adapter = NewsAdapter()
 
-class SearchFragment : Fragment() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.recyclerSearch.adapter = adapter
 
+        binding.include.SearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                if (p0 != null) {
+                    if(p0.isNotEmpty()) {
+                        p0?.let { viewModel.searchNews(p0) }
+                    }
+                }
+                return false
+            }
+            override fun onQueryTextChange(p0: String?): Boolean {
+                if (p0 != null) {
+                    if(p0.isNotEmpty()) {
+                        p0?.let { viewModel.searchNews(p0) }
+                    }
+                }
+                return false
+            }
+        })
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false)
+        viewModel.searchResult.observe(viewLifecycleOwner) {result ->
+            result?.body()?.let { adapter.setNews(it.articles) }
+        }
     }
-
 }

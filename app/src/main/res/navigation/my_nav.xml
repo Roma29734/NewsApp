@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/everythingFragment"
-        android:name="com.example.newsapp.ui.aps.home.topHeadlines.TopHeadlinesFragment"
+        android:name="com.example.newsapp.ui.aps.home.business.BusinessFragment"
         android:label="fragment_everything"
-        tools:layout="@layout/fragment_top_headlines" />
+        tools:layout="@layout/fragment_business" />
     <fragment
         android:id="@+id/navFragment"
         android:name="com.example.newsapp.ui.aps.navFragment"

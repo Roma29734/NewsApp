@@ -6,7 +6,12 @@ import com.example.newsapp.utils.KEY
 import retrofit2.Response
 
 class NewsRepository {
-    suspend fun getTopHeadlines(country: String): Response<NewsModel> {
-        return RetrofitInstance.api.getTopHeadlines(contry = "Ukrain", key = "3357336b9b2e429ba7060baea463559d")
+    suspend fun getEverything(query: String): Response<NewsModel> {
+        return RetrofitInstance.api.getEverything(query = query, key = KEY)
     }
+
+    suspend fun getTopHeadlines(country: String, category: String): Response<NewsModel> {
+        return RetrofitInstance.api.getTopHeadLines(country = country, category = category, key = KEY)
+    }
+
 }

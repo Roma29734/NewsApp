@@ -1,14 +1,14 @@
 package com.example.newsapp.ui.aps
 
 import android.os.Bundle
-import android.text.TextUtils.replace
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.newsapp.R
 import com.example.newsapp.databinding.FragmentNavBinding
-import com.example.newsapp.ui.aps.home.topHeadlines.TopHeadlinesFragment
+import com.example.newsapp.ui.aps.home.HomeFragment
+import com.example.newsapp.ui.aps.home.business.BusinessFragment
 import com.example.newsapp.ui.aps.profile.ProfileFragment
 import com.example.newsapp.ui.aps.search.SearchFragment
 
@@ -27,15 +27,15 @@ class navFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val topheadlinesFragment = TopHeadlinesFragment()
+        val homeFragment = HomeFragment()
         val profileFragmnet = ProfileFragment()
         val searchFragment = SearchFragment()
 
-        setCurrentFragment(topheadlinesFragment)
+        setCurrentFragment(homeFragment)
 
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId) {
-                R.id.home -> setCurrentFragment(topheadlinesFragment)
+                R.id.home -> setCurrentFragment(homeFragment)
                 R.id.search -> setCurrentFragment(searchFragment)
                 R.id.profile -> setCurrentFragment(profileFragmnet)
             }

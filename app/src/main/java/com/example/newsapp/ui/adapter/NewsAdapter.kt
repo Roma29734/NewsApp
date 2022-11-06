@@ -1,4 +1,4 @@
-package com.example.newsapp.ui.aps.home.topHeadlines
+package com.example.newsapp.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import com.example.newsapp.R
 import com.example.newsapp.data.model.Article
 import com.example.newsapp.databinding.CardNewsRowBinding
 
-class TopHeadlinesAdapter(): RecyclerView.Adapter<TopHeadlinesAdapter.ViewHolder>() {
+class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     private var newsList = emptyList<Article>()
 

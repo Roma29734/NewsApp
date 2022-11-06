@@ -3,6 +3,7 @@
     <style name="Theme.NewsApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryDark">@color/secondWhite</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="android:navigationBarColor">@color/white</item>
@@ -13,7 +14,7 @@
         <item name="android:windowBackground">@color/secondWhite</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/secondWhite</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -33,6 +34,13 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:editTextColor">@color/black</item>
+        <item name="android:textColorHint">@color/mainGrey</item>
+        <item name="queryBackground">@color/mainBlack</item>
     </style>
 
 </resources>

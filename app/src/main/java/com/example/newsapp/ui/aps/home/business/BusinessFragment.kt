@@ -1,17 +1,18 @@
-package com.example.newsapp.ui.aps.home.topHeadlines
+package com.example.newsapp.ui.aps.home.business
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.example.newsapp.base.BaseFragment
-import com.example.newsapp.databinding.FragmentTopHeadlinesBinding
+import com.example.newsapp.databinding.FragmentBusinessBinding
+import com.example.newsapp.ui.adapter.NewsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class TopHeadlinesFragment() : BaseFragment<FragmentTopHeadlinesBinding,TopHeadlinesViewModel >(FragmentTopHeadlinesBinding::inflate) {
-    override val viewModel: TopHeadlinesViewModel by viewModels()
-    private val adapter = TopHeadlinesAdapter()
+class BusinessFragment: BaseFragment<FragmentBusinessBinding>(FragmentBusinessBinding::inflate) {
+    private val viewModel: BusinessViewModel by viewModels()
+    private val adapter = NewsAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,6 +26,6 @@ class TopHeadlinesFragment() : BaseFragment<FragmentTopHeadlinesBinding,TopHeadl
                Log.d("topFragment"," все негуд${news.errorBody()}")
            }
         }
-        binding.include.textWelcome.text = "TopHead News"
+
     }
 }
