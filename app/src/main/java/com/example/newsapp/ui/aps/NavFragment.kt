@@ -1,19 +1,28 @@
 package com.example.newsapp.ui.aps
 
 import android.os.Bundle
+import android.text.TextUtils.replace
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.Navigation
 import com.example.newsapp.R
 import com.example.newsapp.databinding.FragmentNavBinding
 import com.example.newsapp.ui.aps.home.HomeFragment
 import com.example.newsapp.ui.aps.home.business.BusinessFragment
 import com.example.newsapp.ui.aps.profile.ProfileFragment
 import com.example.newsapp.ui.aps.search.SearchFragment
+import com.example.newsapp.ui.authentication.login.LoginFragment
+import com.example.newsapp.ui.authentication.login.LoginFragmentDirections
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-
-class navFragment : Fragment() {
+@AndroidEntryPoint
+class NavFragment : Fragment() {
 
     private var _binding: FragmentNavBinding? = null
     private val binding get() = _binding!!
@@ -41,7 +50,6 @@ class navFragment : Fragment() {
             }
             true
         }
-
     }
 
     private fun setCurrentFragment(fragment: Fragment) {
@@ -50,5 +58,6 @@ class navFragment : Fragment() {
             commit()
         }
     }
+
 
 }

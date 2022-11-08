@@ -22,9 +22,15 @@ class TechnologyFragment()
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerMain.adapter = adapter
 
-        viewModel.news.observe(viewLifecycleOwner) {news->
-            if(news.isSuccessful) {
-                news.body()?.let { adapter.setNews(it.articles) }
+        network?.observe(viewLifecycleOwner) {state ->
+            if(state) {
+                viewModel.news.observe(viewLifecycleOwner) {news->
+                    if(news.isSuccessful) {
+                        news.body()?.let { adapter.setNews(it.articles) }
+                    }
+                }
+            } else {
+                showSnackBar(view)
             }
         }
     }

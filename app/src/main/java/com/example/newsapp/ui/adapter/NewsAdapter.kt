@@ -2,11 +2,14 @@ package com.example.newsapp.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.newsapp.R
 import com.example.newsapp.data.model.Article
+import com.example.newsapp.data.model.detModel.DetailModel
 import com.example.newsapp.databinding.CardNewsRowBinding
+import com.example.newsapp.ui.aps.NavFragmentDirections
 
 class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
@@ -26,6 +29,14 @@ class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
             .load(positionNews.urlToImage)
             .placeholder(R.drawable.ic_launcher_background)
             .into(holder.binding.imageView)
+
+
+        holder.binding.cardNews.setOnClickListener {
+            val model = DetailModel(positionNews.url)
+
+            val action = NavFragmentDirections.actionNavFragmentToDetailFragment(model)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {

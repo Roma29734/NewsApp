@@ -10,9 +10,11 @@
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
+        <item name="android:windowBackground">@color/nightBackground</item>
+        <item name="android:navigationBarColor">@color/nightCard</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/nightBackground</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -20,5 +22,63 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/montserrat_black</item>
         <item name="android:textSize">25sp</item>
+    </style>
+
+    <style name="cardViewtyle" parent="CardView">
+        <item name="android:backgroundTint">@color/nightCard</item>
+        <item name="android:tint">@android:color/transparent</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="textTitle" parent="android:TextAppearance">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="materialButtonMain" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">12sp</item>
+        <item name="android:backgroundTint">@color/secondWhite</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+        <item name="android:textColor">@color/mainBlue</item>
+    </style>
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:editTextColor">@color/black</item>
+        <item name="android:textColorHint">@color/mainGrey</item>
+        <item name="android:queryBackground">@android:color/transparent</item>
+        <item name="android:searchIcon">@drawable/ic_search_white</item>
+    </style>
+
+    <style name="textSecond" parent="android:TextAppearance">
+        <item name="android:textColor">@color/secondWhite</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="textInput" parent="android:TextAppearance.Widget.EditText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:textColorHint">@color/mainGrey</item>
+    </style>
+
+    <style name="tabLayoutStyle" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@color/nightBackground</item>
+        <item name="tabTextColor">@color/secondWhite</item>
+        <item name="tabIndicatorFullWidth">false</item>
+        <item name="tabIndicatorColor">@color/white</item>
+        <item name="tabIndicator">@drawable/tab_indicator</item>
+    </style>
+
+    <style name="bottomNavView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/nightCard</item>
+        <item name="itemIconTint">@drawable/color_night_nav_bar</item>
+        <item name="labelVisibilityMode">unlabeled</item>
+    </style>
+
+    <style name="imageButtonBack" parent="Widget.AppCompat.ImageButton">
+        <item name="srcCompat">@drawable/ic_baseline_arrow_back_ios_new_24_white</item>
+        <item name="android:background">@android:color/transparent</item>
     </style>
 </resources>

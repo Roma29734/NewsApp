@@ -12,4 +12,6 @@
     <color name="mainGrey">#B0B9C8</color>
     <color name="mainBlack">#474749</color>
     <color name="secondWhite">#E9EAEC</color>
+    <color name="nightBackground">#191B2C</color>
+    <color name="nightCard">#151724</color>
 </resources>

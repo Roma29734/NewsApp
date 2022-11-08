@@ -10,6 +10,7 @@
     android:paddingBottom="3dp">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardNews"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

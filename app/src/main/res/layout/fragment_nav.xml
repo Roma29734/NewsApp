@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.aps.navFragment">
+    tools:context=".ui.aps.NavFragment">
 
     <FrameLayout
         android:id="@+id/fragmentView"
@@ -22,9 +22,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        style="@style/bottomNavView"
         app:menu="@menu/nav_menu_bar"
-        app:itemIconTint="@drawable/color_nav_bar"
-        app:labelVisibilityMode="unlabeled" />
-
-
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

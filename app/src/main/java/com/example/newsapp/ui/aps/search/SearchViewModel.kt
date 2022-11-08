@@ -1,5 +1,6 @@
 package com.example.newsapp.ui.aps.search
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -20,6 +21,7 @@ class SearchViewModel @Inject constructor(
 
     fun searchNews(query: String) {
         viewModelScope.launch {
+            Log.d("viewModelSearch","запрос $query")
             _searchResult.value = repository.getEverything(query)
         }
     }

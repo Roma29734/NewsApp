@@ -5,23 +5,34 @@
       <map>
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/drawable/card_backround.xml" value="0.115" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/drawable/color_nav_bar.xml" value="0.115" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/drawable/color_night_nav_bar.xml" value="0.124" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/drawable/ic_back_arrow.xml" value="0.1" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/drawable/ic_baseline_arrow_back_ios_new_24_white.xml" value="0.124" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/drawable/ic_home.xml" value="0.1" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/drawable/ic_search.xml" value="0.115" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/drawable/ic_search_white.xml" value="0.124" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/drawable/input_text_backround.xml" value="0.115" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/drawable/tab_indicator.xml" value="0.115" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/font/font.xml" value="0.21296296296296297" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/card_news_row.xml" value="0.2" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_business.xml" value="0.25" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_detail.xml" value="0.20512820512820512" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_everything.xml" value="0.2" />
-        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_home.xml" value="0.264" />
-        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_nav.xml" value="0.2" />
-        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_profile.xml" value="0.2359375" />
-        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_search.xml" value="0.152" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_home.xml" value="0.176" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_login.xml" value="0.264" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_nav.xml" value="0.176" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_registration.xml" value="0.1935897435897436" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_search.xml" value="0.176" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_sports.xml" value="0.2359375" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_technology.xml" value="0.25" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_top_headlines.xml" value="0.264" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/up_bar_detail.xml" value="0.2" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/up_bar_home.xml" value="0.264" />
-        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/up_bar_search.xml" value="0.4" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/up_bar_registration.xml" value="0.20427350427350427" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/up_bar_search.xml" value="0.2" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/up_profile.xml" value="0.264" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/menu/nav_menu_bar.xml" value="0.25" />
       </map>
     </option>

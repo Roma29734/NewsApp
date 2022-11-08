@@ -41,8 +41,18 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
             }
         })
 
-        viewModel.searchResult.observe(viewLifecycleOwner) {result ->
-            result?.body()?.let { adapter.setNews(it.articles) }
+        network?.observe(viewLifecycleOwner) { state ->
+            if(state) {
+                viewModel.searchResult.observe(viewLifecycleOwner) {result ->
+
+                    result?.body()?.let { adapter.setNews(it.articles) }
+
+                }
+            } else {
+                showSnackBar(view)
+            }
         }
+
+
     }
 }

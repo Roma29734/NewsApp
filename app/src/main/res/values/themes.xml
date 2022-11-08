@@ -3,7 +3,6 @@
     <style name="Theme.NewsApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryDark">@color/secondWhite</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="android:navigationBarColor">@color/white</item>
@@ -12,7 +11,7 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:windowBackground">@color/secondWhite</item>
-
+        <item name="searchViewStyle">@style/SearchViewStyle</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/secondWhite</item>
         <!-- Customize your theme here. -->
@@ -36,11 +35,57 @@
         <item name="android:fontFamily">@font/montserrat_semi_bold</item>
     </style>
 
+    <style name="textSecondGrey" parent="android:TextAppearance">
+        <item name="android:textColor">@color/mainGrey</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="textSecond" parent="android:TextAppearance">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="textInput" parent="android:TextAppearance.Widget.EditText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:backgroundTint">@color/black</item>
+        <item name="android:textColorHint">@color/mainGrey</item>
+    </style>
+
     <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
         <item name="android:textColor">@color/black</item>
         <item name="android:editTextColor">@color/black</item>
         <item name="android:textColorHint">@color/mainGrey</item>
-        <item name="queryBackground">@color/mainBlack</item>
+        <item name="android:queryBackground">@android:color/transparent</item>
+        <item name="android:searchIcon">@drawable/ic_search</item>
+    </style>
+
+<!--    material.button.MaterialButton-->
+
+    <style name="materialButtonMain" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">12sp</item>
+        <item name="android:backgroundTint">@color/mainBlue</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="tabLayoutStyle" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@color/secondWhite</item>
+        <item name="tabTextColor">@color/secondBlue</item>
+        <item name="tabIndicatorFullWidth">false</item>
+        <item name="tabIndicatorColor">@color/mainBlue</item>
+        <item name="tabIndicator">@drawable/tab_indicator</item>
+    </style>
+
+    <style name="bottomNavView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/white</item>
+        <item name="itemIconTint">@drawable/color_nav_bar</item>
+        <item name="labelVisibilityMode">unlabeled</item>
+    </style>
+
+    <style name="imageButtonBack" parent="Widget.AppCompat.ImageButton">
+        <item name="srcCompat">@drawable/ic_baseline_arrow_back_ios_new_24</item>
+        <item name="android:background">@android:color/transparent</item>
     </style>
 
 </resources>
