@@ -24,13 +24,14 @@ class TechnologyFragment()
 
         network?.observe(viewLifecycleOwner) {state ->
             if(state) {
-                viewModel.news.observe(viewLifecycleOwner) {news->
-                    if(news.isSuccessful) {
-                        news.body()?.let { adapter.setNews(it.articles) }
-                    }
-                }
+                viewModel.getNews()
             } else {
                 showSnackBar(view)
+            }
+        }
+        viewModel.news.observe(viewLifecycleOwner) {news->
+            if(news.isSuccessful) {
+                news.body()?.let { adapter.setNews(it.articles) }
             }
         }
     }

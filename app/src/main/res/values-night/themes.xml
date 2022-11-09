@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.NewsApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimary">@color/secondWhite</item>
         <item name="colorPrimaryDark">@color/secondWhite</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/black</item>
@@ -78,7 +78,7 @@
     </style>
 
     <style name="imageButtonBack" parent="Widget.AppCompat.ImageButton">
-        <item name="srcCompat">@drawable/ic_baseline_arrow_back_ios_new_24_white</item>
+        <item name="srcCompat">@drawable/ic_back_white</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
 </resources>

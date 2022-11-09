@@ -21,17 +21,19 @@ class BusinessFragment: BaseFragment<FragmentBusinessBinding>(FragmentBusinessBi
 
         network?.observe(viewLifecycleOwner){state ->
             if(state) {
-                viewModel.news.observe(viewLifecycleOwner) {news ->
-                    if(news.isSuccessful) {
-                        Log.d("topFragment","сделал запрос${news.message()}")
-                        news.body()?.let { adapter.setNews(it.articles) }
-                        Log.d("topFragment"," все гуд${news.message()}")
-                    } else {
-                        Log.d("topFragment"," все негуд${news.errorBody()}")
-                    }
-                }
+                viewModel.getNews()
             } else {
                 Log.d("topFragment"," нет интернета")
+            }
+        }
+
+        viewModel.news.observe(viewLifecycleOwner) {news ->
+            if(news.isSuccessful) {
+                Log.d("topFragment","сделал запрос${news.message()}")
+                news.body()?.let { adapter.setNews(it.articles) }
+                Log.d("topFragment"," все гуд${news.message()}")
+            } else {
+                Log.d("topFragment"," все негуд${news.errorBody()}")
             }
         }
 

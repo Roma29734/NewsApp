@@ -17,7 +17,7 @@ class TechnologyViewModel @Inject constructor(
     private var _news: MutableLiveData<Response<NewsModel>> = MutableLiveData()
     val news get() = _news
 
-    init {
+    fun getNews() {
         viewModelScope.launch {
             _news.value = repository.getTopHeadlines("us", "technology")
         }
