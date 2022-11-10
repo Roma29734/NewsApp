@@ -88,4 +88,9 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
+    <!-- Starting activity theme -->
+    <style name="Theme.NewsApp.Launcher">
+        <item name="android:windowBackground">@drawable/my_splash</item>
+    </style>
+
 </resources>
