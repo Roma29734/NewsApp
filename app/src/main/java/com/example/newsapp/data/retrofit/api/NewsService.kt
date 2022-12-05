@@ -22,5 +22,5 @@ interface NewsService {
         @Query("country") country: String,
         @Query("category") category: String,
         @Query("apiKey") key: String,
-    ): Response<NewsModel>
+    ): NewsModel
 }

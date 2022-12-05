@@ -12,6 +12,8 @@
     <color name="mainGrey">#B0B9C8</color>
     <color name="mainBlack">#474749</color>
     <color name="secondWhite">#E9EAEC</color>
+<!--    <color name="secondWhite">#D2D7E4</color>-->
     <color name="nightBackground">#191B2C</color>
     <color name="nightCard">#151724</color>
+    <color name="mainRed">#E54B4B</color>
 </resources>

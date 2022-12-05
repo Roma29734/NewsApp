@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import com.example.newsapp.R
 import com.example.newsapp.base.BaseFragment
 import com.example.newsapp.databinding.FragmentSearchBinding
@@ -16,10 +19,12 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate) {
     private val viewModel: SearchViewModel by viewModels()
-    private val adapter = NewsAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val nav: NavController = Navigation.findNavController(requireActivity(), R.id.fragmentContainerView)
+        val adapter = NewsAdapter(nav)
+
         binding.recyclerSearch.adapter = adapter
 
         binding.include.SearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
@@ -48,11 +53,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
                     result?.body()?.let { adapter.setNews(it.articles) }
 
                 }
+
             } else {
                 showSnackBar(view)
             }
         }
-
-
     }
 }

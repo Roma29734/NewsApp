@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
 
     private val viewModel: LoginViewModel by viewModels()
-    private var firebaseAuth = FirebaseAuth.getInstance()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -54,20 +54,4 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                 .navigate(R.id.action_loginFragment_to_registrationFragment)
         }
     }
-
-    private fun checkRegistr() {
-        if (firebaseAuth.currentUser != null) {
-            view?.let {
-                Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_navFragment)
-            }
-        } else {
-            Toast.makeText(context, "Welcome", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        checkRegistr()
-    }
-
 }

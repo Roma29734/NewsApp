@@ -21,7 +21,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // if you want to enable zoom feature
         network?.observe(viewLifecycleOwner) { state ->
             if(state) {
                 Log.d("detailFragment","есть интернет")
@@ -37,7 +36,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
         }
 
         binding.include3.imageButtonBack.setOnClickListener {
-            Navigation.findNavController(view).popBackStack()
+            nav.popBackStack()
         }
     }
 }

@@ -16,4 +16,13 @@
     <string name="sing_logo">Sing</string>
     <string name="registration_logo">Registration</string>
     <string name="name">Name</string>
+    <string name="continues">continue</string>
+    <string name="business">business</string>
+    <string name="entertainment">entertainment</string>
+    <string name="general">general</string>
+    <string name="health">health</string>
+    <string name="science">science</string>
+    <string name="sports">sports</string>
+    <string name="technology">technology</string>
+    <string name="choose_your_categories">Choose your categories</string>
 </resources>

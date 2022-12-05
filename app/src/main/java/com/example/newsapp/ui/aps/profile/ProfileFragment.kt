@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.newsapp.R
 import com.example.newsapp.base.BaseFragment
@@ -26,7 +27,7 @@ import kotlin.math.log
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
 
     private val viewModel: ProfileViewModel by viewModels()
-
+//    private val nav: NavController by lazy { Navigation.findNavController(requireActivity(), R.id.fragmentContainerView) }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -42,7 +43,6 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
             saveTheme()
             (requireActivity() as MainActivity).setTheme()
         }
-
     }
 
     fun loadTheme() {
@@ -92,7 +92,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
                 viewModel.exit()
             }
             Toast.makeText(context, "You success exit profile", Toast.LENGTH_SHORT).show()
-            view?.let { Navigation.findNavController(it).navigate(R.id.action_navFragment_to_loginFragment) }
+            nav.navigate(R.id.action_navFragment_to_loginFragment)
         }
         builder.setNegativeButton("No") { _, _ -> }
         builder.setTitle("Exit?")

@@ -3,28 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/greetingsFragment">
 
-    <fragment
-        android:id="@+id/everythingFragment"
-        android:name="com.example.newsapp.ui.aps.home.business.BusinessFragment"
-        android:label="fragment_everything"
-        tools:layout="@layout/fragment_business" />
     <fragment
         android:id="@+id/navFragment"
         android:name="com.example.newsapp.ui.aps.NavFragment"
         android:label="fragment_nav"
         tools:layout="@layout/fragment_nav" >
         <action
-            android:id="@+id/action_navFragment_to_detailFragment"
-            app:destination="@id/detailFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-        <action
             android:id="@+id/action_navFragment_to_loginFragment"
             app:destination="@id/loginFragment"
+            app:popUpTo="@id/navFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_navFragment_to_choosingCategoryFragment"
+            app:destination="@id/choosingCategoryFragment"
             app:popUpTo="@id/navFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -60,6 +56,31 @@
             android:id="@+id/action_loginFragment_to_navFragment"
             app:destination="@id/navFragment"
             app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/greetingsFragment"
+        android:name="com.example.newsapp.ui.authentication.greetings.GreetingsFragment"
+        android:label="fragment_greetings"
+        tools:layout="@layout/fragment_greetings" >
+        <action
+            android:id="@+id/action_greetingsFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_greetingsFragment_to_navFragment"
+            app:destination="@id/navFragment"
+            app:popUpTo="@id/greetingsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/choosingCategoryFragment"
+        android:name="com.example.newsapp.ui.authentication.choosing.ChoosingCategoryFragment"
+        android:label="fragment_choosing_category"
+        tools:layout="@layout/fragment_choosing_category" >
+        <action
+            android:id="@+id/action_choosingCategoryFragment_to_navFragment"
+            app:destination="@id/navFragment"
+            app:popUpTo="@id/choosingCategoryFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.viewbinding.ViewBinding
 import com.example.newsapp.R
 import com.example.newsapp.utils.NetworkState
@@ -20,6 +22,7 @@ abstract class BaseFragment<B : ViewBinding>(private val inflate: Inflate<B>) :
     private var _viewBinding: B? = null
     protected val binding get() = checkNotNull(_viewBinding)
     protected val network by lazy { context?.let { NetworkState(it) } }
+    protected val nav: NavController by lazy { Navigation.findNavController(requireActivity(), R.id.fragmentContainerView) }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

@@ -1,28 +1,18 @@
 package com.example.newsapp.ui.aps
 
 import android.os.Bundle
-import android.text.TextUtils.replace
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.newsapp.R
 import com.example.newsapp.databinding.FragmentNavBinding
-import com.example.newsapp.ui.MainActivity
-import com.example.newsapp.ui.aps.home.HomeFragment
-import com.example.newsapp.ui.aps.home.business.BusinessFragment
-import com.example.newsapp.ui.aps.profile.ProfileFragment
-import com.example.newsapp.ui.aps.search.SearchFragment
-import com.example.newsapp.ui.authentication.login.LoginFragment
-import com.example.newsapp.ui.authentication.login.LoginFragmentDirections
-import com.example.newsapp.ui.authentication.registr.RegistrationFragmentDirections
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+import java.util.*
 
 @AndroidEntryPoint
 class NavFragment : Fragment() {
@@ -39,48 +29,11 @@ class NavFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val homeFragment = HomeFragment()
-        val profileFragmnet = ProfileFragment()
-        val searchFragment = SearchFragment()
 
+        val navView: BottomNavigationView = binding.bottomNavigationView
+        val navHostFragment = childFragmentManager.findFragmentById(R.id.nav_host_fragments) as NavHostFragment
+        val navController = navHostFragment.findNavController()
 
-        if (savedInstanceState == null) {
-            setCurrentFragment(HomeFragment())
-        }
-
-        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
-            when(it.itemId) {
-                R.id.home -> {
-                    setCurrentFragment(homeFragment)
-//                    true
-                }
-                R.id.search -> {
-                    Log.d("navFragment", "зашель в сеарч")
-                    setCurrentFragment(searchFragment)
-//                    true
-                }
-                R.id.profile -> {
-                    setCurrentFragment(profileFragmnet)
-//                    true
-                }
-            }
-            true
-        }
-    }
-
-    private fun setCurrentFragment(fragment: Fragment) {
-//        parentFragmentManager.beginTransaction().apply {
-//            replace(R.id.fragmentView, fragment)
-//            commit()
-//        }
-
-        val transaction = parentFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentView,fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
-
-    override fun onStart() {
-        super.onStart()
+        navView.setupWithNavController(navController)
     }
 }

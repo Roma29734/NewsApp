@@ -10,8 +10,7 @@ class NewsRepository {
         return RetrofitInstance.api.getEverything(query = query, key = KEY)
     }
 
-    suspend fun getTopHeadlines(country: String, category: String): Response<NewsModel> {
+    suspend fun getTopHeadlines(country: String, category: String): NewsModel {
         return RetrofitInstance.api.getTopHeadLines(country = country, category = category, key = KEY)
     }
-
 }
