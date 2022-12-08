@@ -6,7 +6,7 @@ import com.example.newsapp.utils.KEY
 import retrofit2.Response
 
 class NewsRepository {
-    suspend fun getEverything(query: String): Response<NewsModel> {
+    suspend fun getEverything(query: String): NewsModel {
         return RetrofitInstance.api.getEverything(query = query, key = KEY)
     }
 

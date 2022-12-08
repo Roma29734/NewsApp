@@ -22,7 +22,7 @@
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/card_news_row.xml" value="0.2" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_business.xml" value="0.25" />
-        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_choosing_category.xml" value="0.22" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_choosing_category.xml" value="0.25" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_detail.xml" value="0.3852080123266564" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_everything.xml" value="0.2" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/fragment_greetings.xml" value="0.33" />
@@ -38,10 +38,10 @@
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/holder_item_categ.xml" value="0.29010416666666666" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/news_card_row.xml" value="0.33" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/test.xml" value="0.23717948717948717" />
-        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/up_bar_detail.xml" value="0.8" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/up_bar_detail.xml" value="0.75" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/up_bar_home.xml" value="0.264" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/up_bar_registration.xml" value="0.20427350427350427" />
-        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/up_bar_search.xml" value="0.31124807395993837" />
+        <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/up_bar_search.xml" value="1.1" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/layout/up_profile.xml" value="0.264" />
         <entry key="..\:/tehnicals/NewsApp/app/src/main/res/menu/nav_menu_bar.xml" value="0.25" />
       </map>

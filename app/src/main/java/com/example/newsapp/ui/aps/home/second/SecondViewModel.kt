@@ -1,10 +1,7 @@
-package com.example.newsapp.ui.aps.home.business
+package com.example.newsapp.ui.aps.home.second
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsapp.data.model.NewsModel
-import com.example.newsapp.data.retrofit.repository.NewsRepository
 import com.example.newsapp.domain.NewsUserCase
 import com.example.newsapp.ui.aps.home.HomeState
 import com.example.newsapp.utils.LoadState
@@ -13,11 +10,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
-class FirstViewModel @Inject constructor(
+class SecondViewModel @Inject constructor(
     private val newsUserCase: NewsUserCase,
 ): ViewModel() {
 
@@ -26,9 +22,8 @@ class FirstViewModel @Inject constructor(
 
     fun getNews() {
         viewModelScope.launch {
-            newsUserCase.getTopHeadLines("us",
-                newsUserCase.readLocalFavCatCase()[0].nameCat
-            ).collect { result ->
+//            _news.value = repository.getTopHeadlines("us", "sports")
+            newsUserCase.getTopHeadLines("us", newsUserCase.readLocalFavCatCase()[1].nameCat).collect {result ->
                 when(result) {
                     is Resource.Loading -> {
                         _news.update { it.copy(loadState = LoadState.LOADING) }

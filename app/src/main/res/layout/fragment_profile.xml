@@ -91,19 +91,19 @@
             android:id="@+id/rBSystem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="System" />
+            android:text="@string/system" />
 
         <RadioButton
             android:id="@+id/rBDark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dark" />
+            android:text="@string/dark" />
 
         <RadioButton
             android:id="@+id/rBWhile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="White" />
+            android:text="@string/white" />
     </RadioGroup>
 
     <TextView
@@ -111,7 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="App theme"
+        android:text="@string/app_theme"
         style="@style/textTitle"
         app:layout_constraintStart_toStartOf="@+id/cardView"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />

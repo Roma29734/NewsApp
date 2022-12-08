@@ -27,7 +27,7 @@ import kotlin.math.log
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
 
     private val viewModel: ProfileViewModel by viewModels()
-//    private val nav: NavController by lazy { Navigation.findNavController(requireActivity(), R.id.fragmentContainerView) }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

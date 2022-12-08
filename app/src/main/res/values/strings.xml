@@ -8,7 +8,7 @@
     <string name="text_search">search</string>
     <string name="no_internet">No internet connection</string>
     <string name="profile">Profile</string>
-    <string name="exit_text_mat_button">Выйти</string>
+    <string name="exit_text_mat_button">Exit</string>
     <string name="sing_in">Sing in</string>
     <string name="registration">Registration</string>
     <string name="password">Password</string>
@@ -25,4 +25,10 @@
     <string name="sports">sports</string>
     <string name="technology">technology</string>
     <string name="choose_your_categories">Choose your categories</string>
+    <string name="venis_news">Venis news</string>
+    <string name="news_of_a_new">news of a new</string>
+    <string name="system">System</string>
+    <string name="dark">Dark</string>
+    <string name="white">White</string>
+    <string name="app_theme">App theme</string>
 </resources>

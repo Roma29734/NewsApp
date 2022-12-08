@@ -1,10 +1,7 @@
-package com.example.newsapp.ui.aps.home.technology
+package com.example.newsapp.ui.aps.home.third
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsapp.data.model.NewsModel
-import com.example.newsapp.data.retrofit.repository.NewsRepository
 import com.example.newsapp.domain.NewsUserCase
 import com.example.newsapp.ui.aps.home.HomeState
 import com.example.newsapp.utils.LoadState
@@ -13,7 +10,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel

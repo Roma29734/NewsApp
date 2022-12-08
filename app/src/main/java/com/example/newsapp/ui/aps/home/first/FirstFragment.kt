@@ -1,4 +1,4 @@
-package com.example.newsapp.ui.aps.home.technology
+package com.example.newsapp.ui.aps.home.first
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.newsapp.base.BaseFragment
-import com.example.newsapp.databinding.FragmentTechnologyBinding
+import com.example.newsapp.databinding.FragmentBusinessBinding
 import com.example.newsapp.ui.adapter.NewsAdapter
 import com.example.newsapp.utils.LoadState
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,10 +16,9 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ThirdFragment()
-    :BaseFragment<FragmentTechnologyBinding>(FragmentTechnologyBinding::inflate) {
+class FirstFragment: BaseFragment<FragmentBusinessBinding>(FragmentBusinessBinding::inflate) {
 
-    private val viewModel: ThirdViewModel by viewModels()
+    private val viewModel: FirstViewModel by viewModels()
     private val adapter by lazy { NewsAdapter(nav) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,5 +47,4 @@ class ThirdFragment()
             }
         }
     }
-
 }

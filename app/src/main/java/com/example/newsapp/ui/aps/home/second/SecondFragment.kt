@@ -1,4 +1,4 @@
-package com.example.newsapp.ui.aps.home.sports
+package com.example.newsapp.ui.aps.home.second
 
 import android.os.Bundle
 import android.view.View

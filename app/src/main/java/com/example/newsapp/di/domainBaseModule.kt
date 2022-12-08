@@ -21,6 +21,10 @@ class domainBaseModule {
 
     @Singleton
     @Provides
+    fun provideGetEvetrhing(repository: NewsRepository) = GetEverythingCase(repository)
+
+    @Singleton
+    @Provides
     fun provideAddLocalFavCatCase(repository: LocalRepository) = AddLocalFavCatCase(repository)
 
     @Singleton
@@ -38,12 +42,14 @@ class domainBaseModule {
     @Provides
     fun provideNewsUserCase (
         getTopHeadLines: GetTopHeadLines,
+        getEverythingCase: GetEverythingCase,
         addLocalFavCatCase: AddLocalFavCatCase,
         readLocalFavCatCase: ReadLocalFavCatCase,
         getSizeLocalFavCatCase: GetSizeLocalFavCatCase,
         deleteLocalFavCatCase: DeleteLocalFavCatCase,
     ) = NewsUserCase(
         getTopHeadLines,
+        getEverythingCase,
         addLocalFavCatCase,
         readLocalFavCatCase,
         getSizeLocalFavCatCase,

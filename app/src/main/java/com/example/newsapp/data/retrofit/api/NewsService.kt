@@ -15,7 +15,7 @@ interface NewsService {
     suspend fun getEverything(
         @Query("q") query: String,
         @Query("apiKey") key: String
-    ): Response<NewsModel>
+    ): NewsModel
 
     @GET("v2/top-headlines")
     suspend fun getTopHeadLines(

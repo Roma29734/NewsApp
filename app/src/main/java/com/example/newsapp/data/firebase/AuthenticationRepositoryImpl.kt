@@ -11,10 +11,8 @@ class AuthenticationRepositoryImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth
 ): AuthenticationRepository {
 
-
     override val currentUser: FirebaseUser?
         get() = firebaseAuth.currentUser
-
 
     override suspend fun createUser(name: String,email: String, password: String): Resours<FirebaseUser> {
         return try {
