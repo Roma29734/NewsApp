@@ -10,26 +10,34 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.newsapp.base.BaseFragment
 import com.example.newsapp.databinding.FragmentSportsBinding
 import com.example.newsapp.ui.adapter.NewsAdapter
+import com.example.newsapp.ui.aps.NavFragmentDirections
 import com.example.newsapp.utils.LoadState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class SecondFragment(): BaseFragment<FragmentSportsBinding>(FragmentSportsBinding::inflate) {
+class SecondFragment() :
+    BaseFragment<FragmentSportsBinding>
+        (FragmentSportsBinding::inflate) {
 
     private val viewModel: SecondViewModel by viewModels()
-    private val adapter by lazy { NewsAdapter(nav) }
+    private val adapter = NewsAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        adapter.callBackPress = {
+            val action = NavFragmentDirections.actionNavFragmentToDetailFragment(it)
+            mainNavController.navigate(action)
+        }
+
         binding.recyclerMain.adapter = adapter
 
         viewModel.getNews()
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.news.collectLatest { uiState ->
-                    when(uiState.loadState) {
+                    when (uiState.loadState) {
                         LoadState.LOADING -> {
                             binding.progressBar.visibility = View.VISIBLE
                         }

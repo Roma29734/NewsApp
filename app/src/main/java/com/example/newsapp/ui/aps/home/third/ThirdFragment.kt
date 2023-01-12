@@ -10,6 +10,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.newsapp.base.BaseFragment
 import com.example.newsapp.databinding.FragmentTechnologyBinding
 import com.example.newsapp.ui.adapter.NewsAdapter
+import com.example.newsapp.ui.aps.NavFragmentDirections
 import com.example.newsapp.utils.LoadState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -17,13 +18,20 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ThirdFragment()
-    :BaseFragment<FragmentTechnologyBinding>(FragmentTechnologyBinding::inflate) {
+    :BaseFragment<FragmentTechnologyBinding>
+    (FragmentTechnologyBinding::inflate) {
 
     private val viewModel: ThirdViewModel by viewModels()
-    private val adapter by lazy { NewsAdapter(nav) }
+    private val adapter = NewsAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+//        настройка адапрера
+        adapter.callBackPress = {
+            val action = NavFragmentDirections.actionNavFragmentToDetailFragment(it)
+            mainNavController.navigate(action)
+        }
 
         binding.recyclerMain.adapter = adapter
 
@@ -48,5 +56,4 @@ class ThirdFragment()
             }
         }
     }
-
 }

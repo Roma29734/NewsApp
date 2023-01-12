@@ -2,8 +2,9 @@ package com.example.newsapp.ui.authentication.choosing
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsapp.data.model.localFav.FavModel
-import com.example.newsapp.domain.NewsUserCase
+import com.example.data.model.localFav.FavEntity
+import com.example.domain.NewsUserCase
+import com.example.domain.model.FavModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

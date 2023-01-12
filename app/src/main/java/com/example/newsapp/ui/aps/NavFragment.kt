@@ -9,29 +9,23 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.newsapp.R
+import com.example.newsapp.base.BaseFragment
 import com.example.newsapp.databinding.FragmentNavBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
 @AndroidEntryPoint
-class NavFragment : Fragment() {
-
-    private var _binding: FragmentNavBinding? = null
-    private val binding get() = _binding!!
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentNavBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+class NavFragment :
+    BaseFragment<FragmentNavBinding>
+        (FragmentNavBinding::inflate) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val navView: BottomNavigationView = binding.bottomNavigationView
-        val navHostFragment = childFragmentManager.findFragmentById(R.id.nav_host_fragments) as NavHostFragment
+        val navHostFragment =
+            childFragmentManager.findFragmentById(R.id.nav_host_fragments) as NavHostFragment
         val navController = navHostFragment.findNavController()
 
         navView.setupWithNavController(navController)

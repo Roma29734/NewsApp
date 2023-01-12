@@ -24,7 +24,9 @@ import kotlinx.coroutines.launch
 import kotlin.math.log
 
 @AndroidEntryPoint
-class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
+class ProfileFragment :
+    BaseFragment<FragmentProfileBinding>
+        (FragmentProfileBinding::inflate) {
 
     private val viewModel: ProfileViewModel by viewModels()
 
@@ -51,6 +53,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
         val group = binding.ragioGroop
         if(loadTheme == null) {
             saveTheme.saveDate(ThemeState.SYSTEM)
+            group.rBSystem.isChecked = true
         } else {
             when(loadTheme) {
                 "SYSTEM" -> {
@@ -92,7 +95,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
                 viewModel.exit()
             }
             Toast.makeText(context, "You success exit profile", Toast.LENGTH_SHORT).show()
-            nav.navigate(R.id.action_navFragment_to_loginFragment)
+            mainNavController.navigate(R.id.action_navFragment_to_loginFragment)
         }
         builder.setNegativeButton("No") { _, _ -> }
         builder.setTitle("Exit?")

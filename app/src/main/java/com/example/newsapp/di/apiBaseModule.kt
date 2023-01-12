@@ -1,6 +1,7 @@
 package com.example.newsapp.di
 
-import com.example.newsapp.data.retrofit.repository.NewsRepository
+import com.example.data.retrofit.repository.NewsRepositoryImpl
+import com.example.domain.repository.NewRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,5 +12,8 @@ import dagger.hilt.components.SingletonComponent
 class apiBaseModule {
 
     @Provides
-    fun provideNewsRepository(): NewsRepository = NewsRepository()
+    fun provideNewsRepository(impl : NewsRepositoryImpl): NewRepository = impl
+
+    @Provides
+    fun provideNewsRepositoryImpl(): NewsRepositoryImpl = NewsRepositoryImpl()
 }

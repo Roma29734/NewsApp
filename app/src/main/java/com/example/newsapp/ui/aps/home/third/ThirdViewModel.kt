@@ -2,10 +2,9 @@ package com.example.newsapp.ui.aps.home.third
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsapp.domain.NewsUserCase
+import com.example.domain.utils.Resource
 import com.example.newsapp.ui.aps.home.HomeState
 import com.example.newsapp.utils.LoadState
-import com.example.newsapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
@@ -14,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ThirdViewModel @Inject constructor(
-    private val newsUserCase: NewsUserCase,
+    private val newsUserCase: com.example.domain.NewsUserCase,
 ): ViewModel() {
     private var _news = MutableStateFlow(HomeState())
     val news get() = _news

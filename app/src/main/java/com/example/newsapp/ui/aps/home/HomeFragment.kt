@@ -2,27 +2,24 @@ package com.example.newsapp.ui.aps.home
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
 import com.example.newsapp.R
 import com.example.newsapp.base.BaseFragment
-import com.example.newsapp.data.model.localFav.FavModel
+import com.example.data.model.localFav.FavEntity
+import com.example.domain.model.FavModel
 import com.example.newsapp.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate){
+class HomeFragment :
+    BaseFragment<FragmentHomeBinding>
+        (FragmentHomeBinding::inflate){
 
     private var contex: Context?= null
 
@@ -40,7 +37,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             val name = viewModel.getName()
 
             if(!viewModel.checkSize()) {
-                nav.navigate(R.id.action_navFragment_to_choosingCategoryFragment)
+                mainNavController.navigate(R.id.action_navFragment_to_choosingCategoryFragment)
             } else {
                 binding.viewPager.adapter = HomeViewPagerAdapter(contex as FragmentActivity)
                 setingsTab(name)

@@ -2,10 +2,10 @@ package com.example.newsapp.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.newsapp.data.local.FavDao
-import com.example.newsapp.data.local.FavDataBase
-import com.example.newsapp.data.local.repository.LocalRepository
-import com.example.newsapp.data.local.repository.LocalRepositoryImpl
+import com.example.data.local.FavDao
+import com.example.data.local.FavDataBase
+import com.example.data.local.repository.LocalRepositoryImpl
+import com.example.domain.repository.LocalRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,6 +19,9 @@ class localBaseModule {
 
     @Provides
     fun provideRepository(impl: LocalRepositoryImpl): LocalRepository = impl
+
+    @Provides
+    fun provideRepositoryImpl(favdao: FavDao): LocalRepositoryImpl = LocalRepositoryImpl(favdao)
 
     @Provides
     fun provideFavDao(appDataBase: FavDataBase): FavDao = appDataBase.favDao()

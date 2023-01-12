@@ -1,9 +1,10 @@
 package com.example.newsapp.di
 
-import com.example.newsapp.data.local.repository.LocalRepository
-import com.example.newsapp.data.retrofit.repository.NewsRepository
-import com.example.newsapp.domain.NewsUserCase
-import com.example.newsapp.domain.userCase.*
+
+import com.example.data.retrofit.repository.NewsRepositoryImpl
+import com.example.domain.repository.LocalRepository
+import com.example.domain.repository.NewRepository
+import com.example.domain.userCase.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,11 +18,11 @@ class domainBaseModule {
 
     @Singleton
     @Provides
-    fun provideGetTopHeadLines(repository: NewsRepository) = GetTopHeadLines(repository)
+    fun provideGetTopHeadLines(repository: NewRepository) = GetTopHeadLines(repository)
 
     @Singleton
     @Provides
-    fun provideGetEvetrhing(repository: NewsRepository) = GetEverythingCase(repository)
+    fun provideGetEvetrhing(repository: NewRepository) = GetEverythingCase(repository)
 
     @Singleton
     @Provides
@@ -47,7 +48,7 @@ class domainBaseModule {
         readLocalFavCatCase: ReadLocalFavCatCase,
         getSizeLocalFavCatCase: GetSizeLocalFavCatCase,
         deleteLocalFavCatCase: DeleteLocalFavCatCase,
-    ) = NewsUserCase(
+    ) = com.example.domain.NewsUserCase(
         getTopHeadLines,
         getEverythingCase,
         addLocalFavCatCase,

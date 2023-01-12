@@ -14,7 +14,9 @@ import com.example.newsapp.databinding.FragmentChoosingCategoryBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ChoosingCategoryFragment : BaseFragment<FragmentChoosingCategoryBinding>(FragmentChoosingCategoryBinding::inflate) {
+class ChoosingCategoryFragment :
+    BaseFragment<FragmentChoosingCategoryBinding>
+        (FragmentChoosingCategoryBinding::inflate) {
 
     private val viewModel: ChoosingCategoryViewModel by viewModels()
 
@@ -92,9 +94,9 @@ class ChoosingCategoryFragment : BaseFragment<FragmentChoosingCategoryBinding>(F
         }
 
         binding.matButtonGo.setOnClickListener {
-            if(viewModel.addedList.size == 3) {
+            if (viewModel.addedList.size == 3) {
                 viewModel.addToDataBase { callBack() }
-            } else if(viewModel.addedList.size < 2) {
+            } else if (viewModel.addedList.size < 2) {
                 Toast.makeText(context, "need 3 categories", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(context, "no more than 3 categories", Toast.LENGTH_SHORT).show()
@@ -103,6 +105,6 @@ class ChoosingCategoryFragment : BaseFragment<FragmentChoosingCategoryBinding>(F
     }
 
     private fun callBack() {
-        view.let { it?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_choosingCategoryFragment_to_navFragment) } }
+        view.let { it?.let { mainNavController.navigate(R.id.action_choosingCategoryFragment_to_navFragment) } }
     }
 }

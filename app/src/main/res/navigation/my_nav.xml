@@ -31,7 +31,7 @@
         tools:layout="@layout/fragment_detail" >
         <argument
             android:name="news_state"
-            app:argType="com.example.newsapp.data.model.detModel.DetailModel" />
+            app:argType="com.example.data.model.detModel.DetailModel" />
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"

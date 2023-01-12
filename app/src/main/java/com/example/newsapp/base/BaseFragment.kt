@@ -22,7 +22,7 @@ abstract class BaseFragment<B : ViewBinding>(private val inflate: Inflate<B>) :
     private var _viewBinding: B? = null
     protected val binding get() = checkNotNull(_viewBinding)
     protected val network by lazy { context?.let { NetworkState(it) } }
-    protected val nav: NavController by lazy { Navigation.findNavController(requireActivity(), R.id.fragmentContainerView) }
+    protected val mainNavController: NavController by lazy { Navigation.findNavController(requireActivity(), R.id.fragmentContainerView) }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

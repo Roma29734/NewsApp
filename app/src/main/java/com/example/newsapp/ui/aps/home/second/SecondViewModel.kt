@@ -2,10 +2,10 @@ package com.example.newsapp.ui.aps.home.second
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsapp.domain.NewsUserCase
+import com.example.domain.NewsUserCase
+import com.example.domain.utils.Resource
 import com.example.newsapp.ui.aps.home.HomeState
 import com.example.newsapp.utils.LoadState
-import com.example.newsapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
@@ -22,7 +22,6 @@ class SecondViewModel @Inject constructor(
 
     fun getNews() {
         viewModelScope.launch {
-//            _news.value = repository.getTopHeadlines("us", "sports")
             newsUserCase.getTopHeadLines("us", newsUserCase.readLocalFavCatCase()[1].nameCat).collect {result ->
                 when(result) {
                     is Resource.Loading -> {

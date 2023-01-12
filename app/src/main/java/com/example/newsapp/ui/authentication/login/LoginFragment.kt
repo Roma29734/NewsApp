@@ -1,23 +1,19 @@
 package com.example.newsapp.ui.authentication.login
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
 import com.example.newsapp.R
 import com.example.newsapp.base.BaseFragment
-import com.example.newsapp.data.firebase.Resours
+import com.example.data.firebase.Resours
 import com.example.newsapp.databinding.FragmentLoginBinding
-import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
+class LoginFragment :
+    BaseFragment<FragmentLoginBinding>
+        (FragmentLoginBinding::inflate) {
 
     private val viewModel: LoginViewModel by viewModels()
 
@@ -42,7 +38,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                     is Resours.Success -> {
                         Toast.makeText(context, "Complete", Toast.LENGTH_SHORT).show()
                         binding.progressBar.visibility = View.INVISIBLE
-                        Navigation.findNavController(view)
+                        mainNavController
                             .navigate(R.id.action_loginFragment_to_navFragment)
                     }
                 }
@@ -50,7 +46,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         }
 
         binding.textGotoRegistr.setOnClickListener {
-            Navigation.findNavController(view)
+            mainNavController
                 .navigate(R.id.action_loginFragment_to_registrationFragment)
         }
     }

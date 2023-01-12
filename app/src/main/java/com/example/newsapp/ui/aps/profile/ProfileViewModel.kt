@@ -3,9 +3,10 @@ package com.example.newsapp.ui.aps.profile
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsapp.data.firebase.AuthenticationRepository
-import com.example.newsapp.data.model.localFav.FavModel
-import com.example.newsapp.domain.NewsUserCase
+import com.example.data.firebase.AuthenticationRepository
+import com.example.data.model.localFav.FavEntity
+import com.example.domain.NewsUserCase
+import com.example.domain.model.FavModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -13,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val repository: AuthenticationRepository,
-    private val newsUserCase: NewsUserCase,
+    private val newsUserCase: com.example.domain.NewsUserCase,
 ): ViewModel() {
 
     val user = repository.currentUser
@@ -35,9 +36,9 @@ class ProfileViewModel @Inject constructor(
     }
 
     fun delete() {
-        getFavCat()
+
         viewModelScope.launch {
-            _favCat.value?.let { newsUserCase.deleteLocalFavCatCase(it) }
+            newsUserCase.deleteLocalFavCatCase()
         }
     }
 }

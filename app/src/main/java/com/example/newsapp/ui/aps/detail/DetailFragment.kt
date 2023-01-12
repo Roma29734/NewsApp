@@ -36,7 +36,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
         }
 
         binding.include3.imageButtonBack.setOnClickListener {
-            nav.popBackStack()
+            mainNavController.popBackStack()
         }
     }
 }

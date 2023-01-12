@@ -1,7 +1,7 @@
 package com.example.newsapp.ui.authentication.greetings
 
 import androidx.lifecycle.ViewModel
-import com.example.newsapp.domain.NewsUserCase
+import com.example.domain.NewsUserCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

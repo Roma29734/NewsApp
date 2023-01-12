@@ -11,7 +11,7 @@
         android:id="@+id/include"
         layout="@layout/up_bar_search"
         android:layout_width="match_parent"
-        android:layout_height="57dp"
+        android:layout_height="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

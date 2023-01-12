@@ -16,6 +16,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.newsapp.base.BaseFragment
 import com.example.newsapp.databinding.FragmentSearchBinding
 import com.example.newsapp.ui.adapter.NewsAdapter
+import com.example.newsapp.ui.aps.NavFragmentDirections
 import com.example.newsapp.utils.LoadState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.news_card_row.view.*
@@ -24,30 +25,39 @@ import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
-class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate) {
+class SearchFragment :
+    BaseFragment<FragmentSearchBinding>
+        (FragmentSearchBinding::inflate) {
 
     private val viewModel: SearchViewModel by viewModels()
-    private val adapter by lazy { NewsAdapter(nav) }
+    private val adapter = NewsAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+//        настройка адапрера
+        adapter.callBackPress = {
+            val action = NavFragmentDirections.actionNavFragmentToDetailFragment(it)
+            mainNavController.navigate(action)
+        }
 
         binding.recyclerSearch.adapter = adapter
 
         binding.include.SearchView.requestFocus()
 
-        binding.include.SearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        binding.include.SearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 if (p0 != null) {
-                    if(p0.isNotEmpty()) {
+                    if (p0.isNotEmpty()) {
                         p0.let { viewModel.searchNews(p0) }
                     }
                 }
                 return false
             }
+
             override fun onQueryTextChange(p0: String?): Boolean {
                 if (p0 != null) {
-                    if(p0.isNotEmpty()) {
+                    if (p0.isNotEmpty()) {
                         p0.let { viewModel.searchNews(p0) }
                     }
                 }
@@ -55,24 +65,24 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
             }
         })
 
-       lifecycleScope.launch {
-           viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-               viewModel.searchResult.collectLatest { uiState ->
-                   when(uiState.loadState) {
-                       LoadState.LOADING -> {
-                           binding.progressBar.visibility = View.VISIBLE
-                       }
-                       LoadState.ERROR -> {
-                           binding.progressBar.visibility = View.INVISIBLE
-                           Toast.makeText(context, "произашла ошибка", Toast.LENGTH_SHORT).show()
-                       }
-                       LoadState.SUCCESS -> {
-                           binding.progressBar.visibility = View.INVISIBLE
-                           uiState.successState?.let { adapter.setNews(it.articles) }
-                       }
-                   }
-               }
-           }
-       }
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.searchResult.collectLatest { uiState ->
+                    when (uiState.loadState) {
+                        LoadState.LOADING -> {
+                            binding.progressBar.visibility = View.VISIBLE
+                        }
+                        LoadState.ERROR -> {
+                            binding.progressBar.visibility = View.INVISIBLE
+                            Toast.makeText(context, "произашла ошибка", Toast.LENGTH_SHORT).show()
+                        }
+                        LoadState.SUCCESS -> {
+                            binding.progressBar.visibility = View.INVISIBLE
+                            uiState.successState?.let { adapter.setNews(it.articles) }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
