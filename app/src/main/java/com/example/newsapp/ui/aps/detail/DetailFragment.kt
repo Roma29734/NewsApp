@@ -12,8 +12,6 @@ import androidx.navigation.fragment.navArgs
 import com.example.newsapp.R
 import com.example.newsapp.base.BaseFragment
 import com.example.newsapp.databinding.FragmentDetailBinding
-import com.example.newsapp.utils.NetworkState
-import kotlinx.android.synthetic.main.fragment_detail.*
 
 class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding::inflate) {
 

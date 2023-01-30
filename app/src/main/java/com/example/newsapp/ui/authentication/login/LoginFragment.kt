@@ -41,6 +41,7 @@ class LoginFragment :
                         mainNavController
                             .navigate(R.id.action_loginFragment_to_navFragment)
                     }
+                    else -> {}
                 }
             }
         }

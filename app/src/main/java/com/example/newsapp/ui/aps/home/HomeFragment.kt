@@ -13,7 +13,6 @@ import com.example.domain.model.FavModel
 import com.example.newsapp.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -48,7 +47,7 @@ class HomeFragment :
 
     private fun setingsTab(name: List<FavModel>) {
         view?.let {
-            TabLayoutMediator(binding.tabLayout, it.viewPager) { tab, pos ->
+            TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, pos ->
                 when(pos) {
                     0 -> {
                         tab.text = name[0].nameCat

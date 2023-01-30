@@ -39,6 +39,7 @@ class RegistrationFragment :
                         binding.progressBar.visibility = View.INVISIBLE
                         mainNavController.navigate(R.id.action_registrationFragment_to_navFragment)
                     }
+                    else -> {}
                 }
             }
         }

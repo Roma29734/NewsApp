@@ -18,7 +18,6 @@ import com.example.newsapp.databinding.FragmentProfileBinding
 import com.example.newsapp.ui.MainActivity
 import com.example.newsapp.utils.ThemeState
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import kotlinx.coroutines.launch
 import kotlin.math.log
@@ -51,22 +50,25 @@ class ProfileFragment :
         val loadTheme = (requireActivity() as MainActivity).loadData()
         val saveTheme = (requireActivity() as MainActivity)
         val group = binding.ragioGroop
-        if(loadTheme == null) {
-            saveTheme.saveDate(ThemeState.SYSTEM)
-            group.rBSystem.isChecked = true
-        } else {
-            when(loadTheme) {
-                "SYSTEM" -> {
-                    group.rBSystem.isChecked = true
-                }
-                "DARK" -> {
-                    group.rBDark.isChecked = true
-                }
-                "WHITE" -> {
-                    group.rBWhile.isChecked = true
+        binding.ragioGroop.apply {
+            if(loadTheme == null) {
+                saveTheme.saveDate(ThemeState.SYSTEM)
+                rBSystem.isChecked = true
+            } else {
+                when(loadTheme) {
+                    "SYSTEM" -> {
+                        group.rBSystem.isChecked = true
+                    }
+                    "DARK" -> {
+                        group.rBDark.isChecked = true
+                    }
+                    "WHITE" -> {
+                        group.rBWhile.isChecked = true
+                    }
                 }
             }
         }
+
     }
 
     fun saveTheme() {

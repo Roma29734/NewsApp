@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.example.newsapp.R
 import com.example.newsapp.utils.ThemeState
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 
 @AndroidEntryPoint
