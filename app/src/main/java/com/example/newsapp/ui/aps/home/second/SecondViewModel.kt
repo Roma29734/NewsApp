@@ -7,6 +7,7 @@ import com.example.domain.utils.Resource
 import com.example.newsapp.ui.aps.home.HomeState
 import com.example.newsapp.utils.LoadState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -21,19 +22,14 @@ class SecondViewModel @Inject constructor(
     val news get() = _news
 
     fun getNews() {
-        viewModelScope.launch {
-            newsUserCase.getTopHeadLines("us", newsUserCase.readLocalFavCatCase()[1].nameCat).collect {result ->
-                when(result) {
-                    is Resource.Loading -> {
-                        _news.update { it.copy(loadState = LoadState.LOADING) }
-                    }
-                    is Resource.Error -> {
-                        _news.update { it.copy(loadState = LoadState.ERROR) }
-                    }
-                    is Resource.Success -> {
-                        _news.update { it.copy(successState = result.data, loadState = LoadState.SUCCESS) }
-                    }
-                }
+        viewModelScope.launch (Dispatchers.IO) {
+            _news.update { it.copy(loadState = LoadState.LOADING) }
+            newsUserCase.getTopHeadlinesPagerCase(
+                "us",
+                newsUserCase.readLocalFavCatCase()[1].nameCat
+//            "sports"
+            ).collect { result ->
+                _news.update { it.copy(loadState = LoadState.SUCCESS, successState = result) }
             }
         }
     }

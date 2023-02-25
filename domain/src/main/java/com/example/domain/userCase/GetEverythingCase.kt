@@ -15,7 +15,7 @@ class GetEverythingCase  constructor(private val repository: NewRepository) {
      suspend operator fun invoke(query: String): Flow<Resource<NewsDomainModel>> = flow {
          try {
              emit(Resource.Loading())
-             val result = repository.getEverything(query)
+             val result = repository.getEverything(query, 1)
              Log.d("abobaAmebnaya", "$result")
              emit(Resource.Success(result))
          } catch (e: IOException) {

@@ -1,25 +1,19 @@
 package com.example.newsapp.ui.aps.search
 
-import android.content.Context
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
 import android.view.View
-import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import android.widget.SearchView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.newsapp.base.BaseFragment
 import com.example.newsapp.databinding.FragmentSearchBinding
-import com.example.newsapp.ui.adapter.NewsAdapter
+import com.example.newsapp.ui.adapter.NewsPagingAdapter
 import com.example.newsapp.ui.aps.NavFragmentDirections
 import com.example.newsapp.utils.LoadState
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.news_card_row.view.*
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -30,7 +24,7 @@ class SearchFragment :
         (FragmentSearchBinding::inflate) {
 
     private val viewModel: SearchViewModel by viewModels()
-    private val adapter = NewsAdapter()
+    private val adapter = NewsPagingAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -78,7 +72,7 @@ class SearchFragment :
                         }
                         LoadState.SUCCESS -> {
                             binding.progressBar.visibility = View.INVISIBLE
-                            uiState.successState?.let { adapter.setNews(it.articles) }
+                            uiState.successState?.let { adapter.submitData(it) }
                         }
                     }
                 }

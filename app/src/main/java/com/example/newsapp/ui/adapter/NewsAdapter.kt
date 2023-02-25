@@ -9,16 +9,22 @@ import com.example.newsapp.databinding.NewsCardRowBinding
 
 
 class NewsAdapter(
-): RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     private var newsList = emptyList<ArticleDomain>()
 
-    class ViewHolder (val binding: NewsCardRowBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(val binding: NewsCardRowBinding) : RecyclerView.ViewHolder(binding.root)
 
     var callBackPress: ((detailModel: DetailModel) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(NewsCardRowBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return ViewHolder(
+            NewsCardRowBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

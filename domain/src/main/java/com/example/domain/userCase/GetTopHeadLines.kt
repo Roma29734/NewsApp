@@ -15,7 +15,7 @@ class GetTopHeadLines constructor(
     operator fun invoke(country: String, category: String): Flow<Resource<NewsDomainModel>> = flow {
         try {
             emit(Resource.Loading())
-            val result = repository.getTopHeadlines(country, category)
+            val result = repository.getTopHeadlines(country, category, 1)
             Log.d("abobaAmebnaya", "$result")
             emit(Resource.Success(result))
         } catch (e: IOException) {

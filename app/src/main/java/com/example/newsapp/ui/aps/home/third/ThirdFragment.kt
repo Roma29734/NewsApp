@@ -8,8 +8,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.newsapp.base.BaseFragment
-import com.example.newsapp.databinding.FragmentTechnologyBinding
-import com.example.newsapp.ui.adapter.NewsAdapter
+import com.example.newsapp.databinding.FragmentThirdBinding
+import com.example.newsapp.ui.adapter.NewsPagingAdapter
 import com.example.newsapp.ui.aps.NavFragmentDirections
 import com.example.newsapp.utils.LoadState
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,12 +17,11 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ThirdFragment()
-    :BaseFragment<FragmentTechnologyBinding>
-    (FragmentTechnologyBinding::inflate) {
+class ThirdFragment() : BaseFragment<FragmentThirdBinding>
+    (FragmentThirdBinding::inflate) {
 
     private val viewModel: ThirdViewModel by viewModels()
-    private val adapter = NewsAdapter()
+    private val adapter = NewsPagingAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,7 +38,7 @@ class ThirdFragment()
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.news.collectLatest { uiState ->
-                    when(uiState.loadState) {
+                    when (uiState.loadState) {
                         LoadState.LOADING -> {
                             binding.progressBar.visibility = View.VISIBLE
                         }
@@ -48,7 +47,7 @@ class ThirdFragment()
                             binding.progressBar.visibility = View.INVISIBLE
                         }
                         LoadState.SUCCESS -> {
-                            uiState.successState?.let { adapter.setNews(it.articles) }
+                            uiState.successState?.let { adapter.submitData(it) }
                             binding.progressBar.visibility = View.INVISIBLE
                         }
                     }

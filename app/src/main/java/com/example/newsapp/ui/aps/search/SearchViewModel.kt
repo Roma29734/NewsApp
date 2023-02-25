@@ -7,6 +7,7 @@ import com.example.domain.utils.Resource
 import com.example.newsapp.ui.aps.home.HomeState
 import com.example.newsapp.utils.LoadState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -21,19 +22,10 @@ class SearchViewModel @Inject constructor(
     val searchResult get() = _searchResult
 
     fun searchNews(query: String) {
-        viewModelScope.launch {
-            newsUserCase.getEverythingCase(query).collect {result ->
-                when(result) {
-                    is Resource.Error -> {
-                        _searchResult.update { it.copy(loadState = LoadState.ERROR) }
-                    }
-                    is Resource.Loading -> {
-                        _searchResult.update { it.copy(loadState = LoadState.LOADING) }
-                    }
-                    is Resource.Success -> {
-                        _searchResult.update { it.copy(successState = result.data, loadState = LoadState.SUCCESS) }
-                    }
-                }
+        viewModelScope.launch (Dispatchers.IO) {
+            _searchResult.update { it.copy(loadState = LoadState.LOADING) }
+            newsUserCase.getEverythingPagerCase(query).collect {result ->
+                _searchResult.update { it.copy(loadState = LoadState.SUCCESS, successState = result) }
             }
         }
     }

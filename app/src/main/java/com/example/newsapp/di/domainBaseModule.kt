@@ -1,7 +1,5 @@
 package com.example.newsapp.di
 
-
-import com.example.data.retrofit.repository.NewsRepositoryImpl
 import com.example.domain.repository.LocalRepository
 import com.example.domain.repository.NewRepository
 import com.example.domain.userCase.*
@@ -34,26 +32,43 @@ class domainBaseModule {
 
     @Singleton
     @Provides
-    fun provideGetSizeLocalFavCatCase(repository: LocalRepository) = GetSizeLocalFavCatCase(repository)
+    fun provideGetSizeLocalFavCatCase(repository: LocalRepository) =
+        GetSizeLocalFavCatCase(repository)
 
     @Singleton
     @Provides
-    fun provideDeleteLocalFavCatCasee(repository: LocalRepository) = DeleteLocalFavCatCase(repository)
+    fun provideDeleteLocalFavCatCasee(repository: LocalRepository) =
+        DeleteLocalFavCatCase(repository)
+
+    @Singleton
+    @Provides
+    fun provideGetTopHeadlinesPagerCase(repository: NewRepository) =
+        GetTopHeadlinesPagerCase(repository)
+
+    @Singleton
+    @Provides
+    fun provideGetEverythingPagerCase(repository: NewRepository) =
+        GetEverythingPagerCase(repository)
+
 
     @Provides
-    fun provideNewsUserCase (
+    fun provideNewsUserCase(
         getTopHeadLines: GetTopHeadLines,
         getEverythingCase: GetEverythingCase,
         addLocalFavCatCase: AddLocalFavCatCase,
         readLocalFavCatCase: ReadLocalFavCatCase,
         getSizeLocalFavCatCase: GetSizeLocalFavCatCase,
         deleteLocalFavCatCase: DeleteLocalFavCatCase,
+        getTopHeadlinesPagerCase: GetTopHeadlinesPagerCase,
+        getEverythingPagerCase: GetEverythingPagerCase,
     ) = com.example.domain.NewsUserCase(
         getTopHeadLines,
         getEverythingCase,
         addLocalFavCatCase,
         readLocalFavCatCase,
         getSizeLocalFavCatCase,
-        deleteLocalFavCatCase
+        deleteLocalFavCatCase,
+        getTopHeadlinesPagerCase,
+        getEverythingPagerCase
     )
 }
